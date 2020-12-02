@@ -1,1 +1,2 @@
 Our idea:
+  We would like to create a program that prompts the user to input absorbance recorded from the spectrophotometer. Then the program will run a calculation to turn that into         transmittance and record it at specific time intervals (every 5 mins). The program will store all the values and assign them to minutes e.g. 5min - Transmittance = 37.9315.       When the user asks to stop the program will print out all the values given up to that point with equivalent times.
