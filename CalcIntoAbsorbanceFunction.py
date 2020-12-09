@@ -4,6 +4,7 @@ Created on Wed Dec  9 11:17:42 2020
 
 @author: alicj
 """
+#github push test- alana
 import math
 
 transmittance = float(input("Please type in  your transmittance value here:"))
