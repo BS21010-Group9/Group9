@@ -20,7 +20,7 @@ values = []    #list of values to be converted
 #maxlim, minlim and intervals needed. minlim = 0. maxlim = (length*interv)-interv!
 
 valuecount = int(input("How many values do you have?"))    #This is used to calculate the range of time, assuming the first reading was completed at 0 mins.
-#maybe make this float?
+
 interv = int(input("How much time did you leave between each reading? (please enter in minutes):"))
 
 maxlim = ((valuecount*interv)-interv)    #getting 0-highest time stamp
@@ -41,49 +41,24 @@ while tora not in ("t", "a"):
    
     else:
         print("Please respond with either 't' or 'a'.")    #avoids error, ensures user provides appropriate input.
-##these two chunks of code need linked together,
-##ive added ala's transmittance & absorbance calculations
-##into the same program.
-
+#these two chunks of code need linked together,
+#ive added ala's transmittance & absorbance calculations
+#into the same program.
+#need a for loop & counter in this calculation area to go through the whole list 
 #Alicja's code- Calculations
 
-##This needs to be in a for loop & converted to run a list of values
-##Might need a counter based on len of list
-#the variables are set to float to make sure they have decimals
-absorbance_calc = float()
-transmittance_calc = float()
+transmittance = float(input("Please type in  your transmittance value here:"))
 
-#calculation for absorbance
-def intoabs(trans):
-    absorbance_calc = 2 - (math.log(trans, 10))
+#comment code
+def intoabs(tran = transmittance):
+    absorbance_calc = 2 - (math.log(tran, 10))
     return(absorbance_calc)
 
-#calculation for transmittance
-def intotrans(absr):
-    transmittance_calc = (10**-absr)*100
-    return(transmittance_calc)
+absorbance = float(input("Please type in your absorbance value here:"))
 
-#choosing which function to run based on intended calculation
-if tora == "t":
-    print(intoabs(absr))
-    
-else:
-    print(intotrans(absr))
+def intotrans(absr = absorbance):
+    transmittence_calc = (10**-absr)*100
+    return(transmittence_calc)
 
+print(absorbance_calc, transmittence_calc)
 
-
-#Judith's code
-def PrintAllValues ():
-  output = 'You have introduced {} values.'.format (valuecount)
-  output_2 =' You left {} minutes between each reading.'.format (interv)
-  output_3 ='These are your time stamps with each converted value:'
-
-  for r, v in zip(range(0,maxlim+interv,interv), values):
-
-    output_4 = (r, "mins", v)
-
-    print (r, "mins:", v)  
-
- 
-
-  return (output, output_2, output_3, output_4)
