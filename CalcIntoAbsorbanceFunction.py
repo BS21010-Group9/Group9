@@ -73,17 +73,14 @@ r = int()
 v = int()
 #Judith's code
 def PrintAllValues ():
+    print ('You have introduced {} values.'.format (valuecount))
+    print (' You left {} minutes between each reading.'.format (interv))
+    print ('These are your time stamps with each converted value:')
     output = 'You have introduced {} values.'.format (valuecount)
     output_2 =' You left {} minutes between each reading.'.format (interv)
     output_3 ='These are your time stamps with each converted value:'
-<<<<<<< HEAD
     for r, v in zip(range(0,maxlim+interv,interv), conval):#maxlim+interv, as range() excludes the end number provided, but we still want to include max.
         output_4 = (r, "mins", v)
-=======
-    #value should be substitute for an list of all the converted values 
-    for r, v in zip(range(0,maxlim+interv,interv), values):#maxlim+interv, as range() excludes the end number provided, but we still want to include max.
-        output_4 = (r, "mins", v) #it does not give all the output
->>>>>>> ff4ded9666d41aac7f5cd59982a443ca980d2765
         print (r, "mins:", v)
     return (output, output_2, output_3, output_4)
 #will print time stamp, alongside each converted value.
@@ -91,6 +88,10 @@ def PrintAllValues ():
     # variables r and v were used to iterate through both this range, and the list of converted values, simultaneously
     # this was then used to print the time (in mins), alongside each converted value.    
 PrintAllValues ()
+<<<<<<< HEAD
+  
+=======
+
 def SaveResults ():
     f = open ('example','w')
     f.write (str(PrintAllValues ()))
