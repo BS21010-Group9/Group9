@@ -1,0 +1,6 @@
+You have introduced 2 values.
+You left 45 minutes between each reading.
+These are your time stamps with each converted value: 
+
+0 mins 2.3665315444204134
+45 mins 2.3726341434072675
