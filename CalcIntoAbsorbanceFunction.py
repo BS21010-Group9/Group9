@@ -4,26 +4,46 @@ Created on Wed Dec  9 11:17:42 2020
 
 @author: alicj
 """
-##Marianne's code- Primary Program Functions
-# coding: utf-8
-#   Primary Functions:
-#   - functions: The user should be able to choose which input (T or A) they would like the program to record.
-#   - They should also be able to choose the time intervals associated with the values entered (e.g. 5min: 0.07932)
 
 # In[ ]:
 import math
 
 
-def intoabs(trans):    ##MAIN FUNCTION - calculation for Absorbance
+def intoabs(trans):    #MAIN FUNCTION - calculation for Absorbance
     absorbance_calc = 2 - (math.log(trans, 10))
     conval.append(absorbance_calc)   ##adds values to new list
     return(absorbance_calc)   
 
-def intotrans(absr):    ##MAIN FUNCTION - calc for Transmittance
+
+def intotrans(absr):    #MAIN FUNCTION - calc for Transmittance
     transmittance_calc = (10**-absr)*100
     conval.append(transmittance_calc)    #adds values to new list
     return(transmittance_calc)
 
+
+def PrintAllValues ():
+    print ('You have introduced {} values.'.format (valuecount))
+    print (' You left {} minutes between each reading.'.format (interv))
+    print ('These are your time stamps with each converted value:')
+    output = 'You have introduced {} values.'.format (valuecount)
+    output_2 =' You left {} minutes between each reading.'.format (interv)
+    output_3 ='These are your time stamps with each converted value:'
+    for r, v in zip(range(0,maxlim+interv,interv), conval):#maxlim+interv, as range() excludes the end number provided, but we still want to include max.
+        output_4 = (r, "mins", v)
+        print (r, "mins:", v)
+    return (output, output_2, output_3, output_4)
+#will print time stamp, alongside each converted value.
+# the maximum time stamp, and time interval between each reading was used to create a range for the total range of time.
+# variables r and v were used to iterate through both this range, and the list of converted values, simultaneously
+# this was then used to print the time (in mins), alongside each converted value.    
+
+
+def SaveResults ():
+    f = open ('example','w')
+    f.write (str(PrintAllValues ()))
+    f.close()
+    
+    
  ##PRIMARY FUNCTIONS
 values = []    #list of values to be converted
 
@@ -61,37 +81,12 @@ while tora not in ("t", "a"):    #while loop ensures program continues running i
 
 #choosing which function to run based on intended calculation
 
-
-###
 r = int()
 v = int()
-#Judith's code
-def PrintAllValues ():
-    print ('You have introduced {} values.'.format (valuecount))
-    print (' You left {} minutes between each reading.'.format (interv))
-    print ('These are your time stamps with each converted value:')
-    output = 'You have introduced {} values.'.format (valuecount)
-    output_2 =' You left {} minutes between each reading.'.format (interv)
-    output_3 ='These are your time stamps with each converted value:'
-    for r, v in zip(range(0,maxlim+interv,interv), conval):#maxlim+interv, as range() excludes the end number provided, but we still want to include max.
-        output_4 = (r, "mins", v)
-        print (r, "mins:", v)
-    return (output, output_2, output_3, output_4)
-#will print time stamp, alongside each converted value.
-    # the maximum time stamp, and time interval between each reading was used to create a range for the total range of time.
-    # variables r and v were used to iterate through both this range, and the list of converted values, simultaneously
-    # this was then used to print the time (in mins), alongside each converted value.    
-PrintAllValues ()
-<<<<<<< HEAD
-  
-=======
 
-def SaveResults ():
-    f = open ('example','w')
-    f.write (str(PrintAllValues ()))
-    f.close()
-    
-    #save function
+PrintAllValues ()
+
+
 ask_user = str(input('Would you like to save the results? Please enter yes/no'))
 yes = 'yes'
 if ask_user == yes:
@@ -100,19 +95,3 @@ else:
     print ('Okay. Goodbye!')
     
     
-#=======
-#absorbance = float(input("Please type in your absorbance value here:"))
-#>>>>>>> refs/remotes/origin/main
-
-#def intotrans(absr = absorbance):
-#    transmittence_calc = (10**-absr)*100
-#    return(transmittence_calc)
-
-#print(absorbance_calc, transmittence_calc)
-
-#<<<<<<< HEAD
-#  return (output, output_2, output_3, output_4)
-
-
-#=======
-#>>>>>>> refs/remotes/origin/main
