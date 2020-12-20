@@ -38,7 +38,7 @@ def PrintAllValues (valuecount, interv, maxlim, conval):
 
 
 def SaveResults (x):
-    name_file = str(input('Please introduce the name for your file.'))
+    name_file = str(input('Please introduce the name for your file.')) #aks user to choose the name of the file
     f = open ( name_file ,'w')
     for i in range(4):
         f.write (str(x[i])+"\n")
