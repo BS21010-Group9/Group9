@@ -38,7 +38,8 @@ def PrintAllValues (valuecount, interv, maxlim, conval):
 
 
 def SaveResults (x):
-    f = open ('example.txt','w')
+    name_file = str(input('Please introduce the name for your file.'))
+    f = open ( name_file ,'w')
     for i in range(4):
         f.write (str(x[i])+"\n")
     f.close()
