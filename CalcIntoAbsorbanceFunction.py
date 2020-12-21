@@ -19,11 +19,11 @@ def intotrans(absr):    #MAIN FUNCTION - calc for Transmittance
     return(transmittance_calc)
 
 
-def PrintAllValues (valuecount, interv, maxlim, conval):
+def PrintAllValues (valuecount, interv, maxlim, conval):    #function to print time stamps alongside each converted value.
     print ('You have introduced {} values.'.format (valuecount))
     print ('You left {} minutes between each reading.'.format (interv))
     print ('These are your time stamps with each converted value: ')
-    output = 'You have introduced {} values.'.format (valuecount)
+    output = 'You have introduced {} values.'.format (valuecount)    #variables assigned to be printed together.
     output_2 ='You left {} minutes between each reading.'.format (interv)
     output_3 ='These are your time stamps with each converted value: '
     output_4 =""
@@ -31,13 +31,12 @@ def PrintAllValues (valuecount, interv, maxlim, conval):
         output_4 += "\n" + str(r) + " mins " + str(v)
         print (r, "mins:", v)
     return (output, output_2, output_3, output_4)
-#will print time stamp, alongside each converted value.
 # the maximum time stamp, and time interval between each reading was used to create a range for the total range of time.
 # variables r and v were used to iterate through both this range, and the list of converted values, simultaneously
 # this was then used to print the time (in mins), alongside each converted value.    
 
 
-def SaveResults (x):
+def SaveResults (x):    #function to save the output as a file, if user requests it.
     name_file = str(input('Please introduce the name for your file.')) #aks user to choose the name of the file
     f = open ( name_file ,'w')
     for i in range(4):
@@ -45,36 +44,36 @@ def SaveResults (x):
     f.close()
     
 def MainLoop():    
-    ##PRIMARY FUNCTIONS
+    ##PRIMARY FUNCTIONS - program begins here
     values = [] #list of values to be converted
 
     conval = [] #list of values after conversion
 
     check = False
 
-    while check == False:
+    while check == False:    #loop created to avoid error if negative or non-integer inputs are entered.
         try:
             valuecount = int(input("How many values do you have? ")) #This is used to calculate the range of time, assuming the first reading was completed at 0 mins.
         except ValueError:
-            print("Sorry you have to put in a whole number. ")
+            print("Sorry, you have to put in a whole number. ")
         else:
             if valuecount > 0:
                 check = True
             else:
-                print("Sorry but you have to put in a positive number. ")
+                print("Sorry, you have to put in a positive number. ")
     
     check = False
     
-    while check == False:        
+    while check == False:    #loop created to avoid error
         try:
             interv = int(input("How many minutes did you leave between each reading? "))    #used to generate time stamp sequence
         except ValueError:
-            print("Sorry you have to input a number. ")
+            print("Sorry, you have to input a number. ")
         else:
             if interv > 0:
                 check = True
             else:
-                print("Sorry but you have to put in a positive number. ")
+                print("Sorry, you have to put in a positive number. ")
             
     maxlim = ((valuecount*interv)-interv) #getting 0-highest time stamp
     
@@ -106,33 +105,33 @@ def MainLoop():
     #choosing which function to run based on intended calculation
     x = PrintAllValues(valuecount, interv, maxlim, conval)
     check = False
-    while check == False:
+    while check == False:    #while loop to provide user with the option to save the results as a file.
         ask_user_save = str(input('Would you like to save the results? Please enter yes/no '))
-        if ask_user_save.lower() == "yes":
+        if ask_user_save.lower() == "yes":    #if user answers yes
             SaveResults(x)
             print("Okay, I saved it on your device. ")
             check = True
-        elif ask_user_save.lower() == "no":
+        elif ask_user_save.lower() == "no":    #if user answers no
             print("Okay, no problem! We hope you liked the program. ")
             check = True
-        else:
+        else:    #to avoid error
             print ('Please answer yes or no. ')
             
 check = False
- 
-while check == False:
+
+while check == False:    #loop created to provide the option to run the program again.
     MainLoop()
     check_again = False
     while check_again == False:
         ask_user_again = input("Would you like to use the program again? ")
-        if ask_user_again.lower() == "no":
+        if ask_user_again.lower() == "no":    #if user answers No
             print("Okay! See you later!")
             check_again = True
             check = True
-        elif ask_user_again.lower() == "yes":
+        elif ask_user_again.lower() == "yes":    #if user answers yes
             print("Okay! Here we go again!")
             check_again = True
-        else:
+        else:    #to avoid error
             print("Please respond with yes or no.")
      
     
