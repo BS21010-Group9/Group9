@@ -86,7 +86,7 @@ def MainLoop():    #PRIMARY FUNCTIONS - program begins here
                 absr = float(input("Please enter each Absorbance value in order, starting from the first. "))    #user inputs values they want to convert.
                 values.append(absr)    #Absorbance readings are added to the list values[]
             for i in values:    #for loop applies function to all values in list.
-                conval.append(intoabs(i))    #MAIN FUNCTION applied to convert Transmittance to Absorbance.
+                conval.append(intotrans(i))    #MAIN FUNCTION applied to convert Transmittance to Absorbance.
                                 
         elif tora == "a" or tora == "A":    #if user chooses to calculate Absorbance
             for i in range(0,valuecount):    #addition of 0 allows range to be of the right length. (usually excludes end number)
@@ -96,7 +96,7 @@ def MainLoop():    #PRIMARY FUNCTIONS - program begins here
                 except ValueError:
                     print("Sorry you have to put in a number. ")
             for i in values:    #for loop applies function to all values in list.
-                conval.append(intotrans(i))    #MAIN FUNCTION applied function
+                conval.append(intoabs(i))    #MAIN FUNCTION applied function
        
         else:
             print("Please respond with either 't' or 'a'. ")    #avoids error, ensures user provides appropriate input.
