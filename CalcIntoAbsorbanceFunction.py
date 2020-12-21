@@ -8,6 +8,7 @@ Created on Wed Dec  9 11:17:42 2020
 # In[ ]:
 import math
 
+#DEF FUNCTIONS TO BE USED LATER:
 
 def intoabs(trans):    #MAIN FUNCTION - calculation for Absorbance
     absorbance_calc = 2 - (math.log(trans, 10))
@@ -43,8 +44,7 @@ def SaveResults (x):    #function to save the output as a file, if user requests
         f.write (str(x[i])+"\n")
     f.close()
     
-def MainLoop():    
-    ##PRIMARY FUNCTIONS - program begins here
+def MainLoop():    #PRIMARY FUNCTIONS - program begins here
     values = [] #list of values to be converted
 
     conval = [] #list of values after conversion
@@ -62,12 +62,12 @@ def MainLoop():
             else:
                 print("Sorry, you have to put in a positive number. ")
     
-    check = False
+    check = False    #this begins the program.
     
     while check == False:    #loop created to avoid error
         try:
             interv = int(input("How many minutes did you leave between each reading? "))    #used to generate time stamp sequence
-        except ValueError:
+        except ValueError:    #this is done to avoid error and prevent the program crashing, if the user does not enter the appriopriate input.
             print("Sorry, you have to input a number. ")
         else:
             if interv > 0:
@@ -103,12 +103,12 @@ def MainLoop():
     
     
     #choosing which function to run based on intended calculation
-    x = PrintAllValues(valuecount, interv, maxlim, conval)
+    x = PrintAllValues(valuecount, interv, maxlim, conval)    #defined function PrintAllValues is applied.
     check = False
     while check == False:    #while loop to provide user with the option to save the results as a file.
         ask_user_save = str(input('Would you like to save the results? Please enter yes/no '))
         if ask_user_save.lower() == "yes":    #if user answers yes
-            SaveResults(x)
+            SaveResults(x)    #defined function SaveResults is applied
             print("Okay, I saved it on your device. ")
             check = True
         elif ask_user_save.lower() == "no":    #if user answers no
@@ -120,7 +120,7 @@ def MainLoop():
 check = False
 
 while check == False:    #loop created to provide the option to run the program again.
-    MainLoop()
+    MainLoop()    #defined function to begin program is applied
     check_again = False
     while check_again == False:
         ask_user_again = input("Would you like to use the program again? ")
